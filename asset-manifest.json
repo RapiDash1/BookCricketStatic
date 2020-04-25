@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Fractals/static/css/main.cb9c179c.chunk.css",
+    "main.js": "/Fractals/static/js/main.9de19c3c.chunk.js",
+    "main.js.map": "/Fractals/static/js/main.9de19c3c.chunk.js.map",
+    "runtime-main.js": "/Fractals/static/js/runtime-main.030f9685.js",
+    "runtime-main.js.map": "/Fractals/static/js/runtime-main.030f9685.js.map",
+    "static/js/2.9ae25ea0.chunk.js": "/Fractals/static/js/2.9ae25ea0.chunk.js",
+    "static/js/2.9ae25ea0.chunk.js.map": "/Fractals/static/js/2.9ae25ea0.chunk.js.map",
+    "index.html": "/Fractals/index.html",
+    "precache-manifest.695cfdf740274f110cfc9e6a22a4010a.js": "/Fractals/precache-manifest.695cfdf740274f110cfc9e6a22a4010a.js",
+    "service-worker.js": "/Fractals/service-worker.js",
+    "static/css/main.cb9c179c.chunk.css.map": "/Fractals/static/css/main.cb9c179c.chunk.css.map",
+    "static/js/2.9ae25ea0.chunk.js.LICENSE.txt": "/Fractals/static/js/2.9ae25ea0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.030f9685.js",
+    "static/js/2.9ae25ea0.chunk.js",
+    "static/css/main.cb9c179c.chunk.css",
+    "static/js/main.9de19c3c.chunk.js"
+  ]
+}
