@@ -1,0 +1,12 @@
+.book {
+    transform-style: preserve-3d;
+    position: relative;
+    backface-visibility: visible;
+    transform-style: preserve-3d;
+    perspective: 1200px;
+}
+
+.complete-book {
+    width: 100%;
+    height: 40vh;
+}
