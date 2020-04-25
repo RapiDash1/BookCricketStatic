@@ -18,6 +18,9 @@ class App extends React.Component<{}, {opponentScore: string}> {
   _customPlayerCode: string = "";
   _displayPlayererSessionInfo: boolean = false;
 
+  // Test autobuild
+  // Ignore this
+
   constructor(props: any) {
     super(props);
 
