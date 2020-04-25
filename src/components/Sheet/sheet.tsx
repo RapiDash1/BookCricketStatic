@@ -75,13 +75,15 @@ class Sheet extends React.Component <CustomInputProps> {
     // calculation should be stopped 
     handleDrag(e: any, socket: any, customPlayerCodeStr: () => string) {
         // x position of the bottom right corner of the sheet
-        const dragButtonPosMultiplier = (window.innerWidth < 1200) ? 0.75 : 0.55;
+        const dragButtonPosMultiplier = (window.innerWidth < 1200) ? 0.8 : 0.55;
+        console.log(dragButtonPosMultiplier);
         const originX = window.innerWidth*dragButtonPosMultiplier;
         const sheetCover = document.querySelector("."+this._sheetCoverStr) as HTMLElement;
         const currentYRot = this.convertRoataionToNumber(sheetCover.style.transform, true);
         // get the actual width of the window
         // e.screenX returns the positon of the mouse wrt the whole screen
-        const actualWindowWidth = e.screenX - window.screenLeft;
+        const eScreen  = (e.screenX) ? e.screenX : e.touches[0].clientX;
+        const actualWindowWidth = eScreen - window.screenLeft;
         //  Below formula emulates a good fit for drag movement to sheet angle
         const newYRot = this.translationToRotation(actualWindowWidth - originX);
         // new angle is being restricted to -155deg, this offers good tradeoff between,
@@ -91,7 +93,7 @@ class Sheet extends React.Component <CustomInputProps> {
             // Use this to display the page number
             if (this.shouldPageNumberDisplay() && newYRot <= -70 && !this._stopTimerLoop) {
                 // stop the timer after a certain angle
-                // Dont set the timer bool always, only if it is false, i.e..., only once
+                // Dont set the timer bool always, only if it is false, i.e..., only onceas
                 if (!this._timerStopBool) {
                     // stop timer
                     this._timerStopBool = true;

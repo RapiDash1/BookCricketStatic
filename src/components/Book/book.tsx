@@ -2,6 +2,7 @@ import React from "react";
 import Sheet from "../Sheet/sheet";
 import "./book.css";
 import App from "../../App";
+const ReactTouchEvents = require("react-touch-events");
 
 interface customBookProps {
     appCallBack: (currentSheetScore: number) => void;
@@ -43,6 +44,7 @@ class Book extends React.Component<customBookProps> {
 
     // handle drag
     handleDrag(e: any) {
+        console.log("HEreeee");
         // delegate start drag to each component
         this._sheetArray.forEach(sheet => {
             sheet.handleDrag(e, this.props.socket, this.props.customPlayerCode);
@@ -129,7 +131,7 @@ class Book extends React.Component<customBookProps> {
             <div className="complete-book">
                 {/* Invisible button */}
                 {/* When dragged translates distance into sheet opening angle*/}
-                <button className="drag-button"  draggable={this.shouldBeDragabble()} onDragStart={this.handleStartDrag} onDrag={this.handleDrag.bind(this)} onDragEnd={this.handleEndDrag}>DragMe</button>
+                <button className="drag-button"  draggable={this.shouldBeDragabble()} onDragStart={this.handleStartDrag} onTouchStart={this.handleStartDrag} onTouchMove={this.handleDrag.bind(this)} onTouchEnd={this.handleEndDrag} onDrag={this.handleDrag.bind(this)} onDragEnd={this.handleEndDrag}>DragMe</button>
                 <div className="book">
                     {_sheetCollection}
                 </div>
