@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/BookCricketStatic/static/css/main.b0906ac7.chunk.css",
-    "main.js": "/BookCricketStatic/static/js/main.248ca6ee.chunk.js",
-    "main.js.map": "/BookCricketStatic/static/js/main.248ca6ee.chunk.js.map",
+    "main.js": "/BookCricketStatic/static/js/main.003efcad.chunk.js",
+    "main.js.map": "/BookCricketStatic/static/js/main.003efcad.chunk.js.map",
     "runtime-main.js": "/BookCricketStatic/static/js/runtime-main.df319d90.js",
     "runtime-main.js.map": "/BookCricketStatic/static/js/runtime-main.df319d90.js.map",
     "static/js/2.ef599657.chunk.js": "/BookCricketStatic/static/js/2.ef599657.chunk.js",
     "static/js/2.ef599657.chunk.js.map": "/BookCricketStatic/static/js/2.ef599657.chunk.js.map",
     "index.html": "/BookCricketStatic/index.html",
-    "precache-manifest.77a3ced6c07435f17f1df65dd1fc8791.js": "/BookCricketStatic/precache-manifest.77a3ced6c07435f17f1df65dd1fc8791.js",
+    "precache-manifest.011e75622db0503ada4f85d798a016bf.js": "/BookCricketStatic/precache-manifest.011e75622db0503ada4f85d798a016bf.js",
     "service-worker.js": "/BookCricketStatic/service-worker.js",
     "static/css/main.b0906ac7.chunk.css.map": "/BookCricketStatic/static/css/main.b0906ac7.chunk.css.map",
     "static/js/2.ef599657.chunk.js.LICENSE.txt": "/BookCricketStatic/static/js/2.ef599657.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.df319d90.js",
     "static/js/2.ef599657.chunk.js",
     "static/css/main.b0906ac7.chunk.css",
-    "static/js/main.248ca6ee.chunk.js"
+    "static/js/main.003efcad.chunk.js"
   ]
 }
