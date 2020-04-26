@@ -37,41 +37,46 @@ class Book extends React.Component<customBookProps> {
 
     // handle start drag
     handleStartDrag() {
-        // start time checkpoint
-        this._startTime = new Date();
+        // adding shouldBeDragabble here insted of dragabble atribute to handle touch evvents aswell
+        if (this.shouldBeDragabble()) {
+            // start time checkpoint
+            this._startTime = new Date();
+        }
     }
 
 
     // handle drag
     handleDrag(e: any) {
-        console.log("HEreeee");
-        // delegate start drag to each component
-        this._sheetArray.forEach(sheet => {
-            sheet.handleDrag(e, this.props.socket, this.props.customPlayerCode);
-            // timer stop
-            if (this.shouldTimerBeStopped(sheet)) {
-                // end time checkpoint
-                this._endTime = new Date();
-                const timeDIff: number = this._endTime.getTime() - this._startTime.getTime();
-                this._timeDiff = timeDIff;
-                // If the number is odd.convert it to even
-                // This is done to increase the probability of 0 occuring
-                if (this._timeDiff % 2 != 0) {
-                    const rand = Math.random()*3;
-                    const roundedRand = Math.floor(rand);
-                    if (roundedRand == 0) {
-                        this._timeDiff += 1;
+        // adding shouldBeDragabble here insted of dragabble atribute to handle touch evvents aswell
+        if (this.shouldBeDragabble()) {
+            // delegate start drag to each component
+            this._sheetArray.forEach(sheet => {
+                sheet.handleDrag(e, this.props.socket, this.props.customPlayerCode);
+                // timer stop
+                if (this.shouldTimerBeStopped(sheet)) {
+                    // end time checkpoint
+                    this._endTime = new Date();
+                    const timeDIff: number = this._endTime.getTime() - this._startTime.getTime();
+                    this._timeDiff = timeDIff;
+                    // If the number is odd.convert it to even
+                    // This is done to increase the probability of 0 occuring
+                    if (this._timeDiff % 2 != 0) {
+                        const rand = Math.random()*3;
+                        const roundedRand = Math.floor(rand);
+                        if (roundedRand == 0) {
+                            this._timeDiff += 1;
+                        }
                     }
+                    // take only the last digit of time diff
+                    // that's how book cricket scores are calculated
+                    this._pageNumber = Number(this._timeDiff.toString());
+                    // force rerender of the component to upodate the page values on each sheet
+                    this.forceUpdate();
+                    // reset timer stop bool so that the above calculatio is done only once
+                    sheet.resetTimerStopBool();
                 }
-                // take only the last digit of time diff
-                // that's how book cricket scores are calculated
-                this._pageNumber = Number(this._timeDiff.toString());
-                // force rerender of the component to upodate the page values on each sheet
-                this.forceUpdate();
-                // reset timer stop bool so that the above calculatio is done only once
-                sheet.resetTimerStopBool();
-            }
-        });
+            });
+        }
     }
 
 
@@ -94,18 +99,22 @@ class Book extends React.Component<customBookProps> {
 
     // handle end drag
     handleEndDrag() {
-        // first convey stop animmaton to opponent
-        // then stop current player's animation
-        this.props.socket.emit("opponentBookStopOpeningAnimation", {playerCode: this.props.customPlayerCode()});
-        // delegate end drag to each component
-        this._sheetArray.forEach(sheet => {
-            sheet.handleEndDrag();
-        });
-        this.resetTimeDiffBool();
-        // Set totalScore in app using callback
-        if (this.props.appCallBack) this.props.appCallBack(this._pageNumber);
+        // adding shouldBeDragabble here insted of dragabble atribute to handle touch evvents aswell
+        if (this.shouldBeDragabble()) {
+            // first convey stop animmaton to opponent
+            // then stop current player's animation
+            this.props.socket.emit("opponentBookStopOpeningAnimation", {playerCode: this.props.customPlayerCode()});
+            // delegate end drag to each component
+            this._sheetArray.forEach(sheet => {
+                sheet.handleEndDrag();
+            });
+            this.resetTimeDiffBool();
+            // Set totalScore in app using callback
+            if (this.props.appCallBack) this.props.appCallBack(this._pageNumber);
+        }
     }
 
+    // should be dragabble
     shouldBeDragabble(): boolean {
         return (this.props.playerTurn) ? true : false;
     }
@@ -131,7 +140,7 @@ class Book extends React.Component<customBookProps> {
             <div className="complete-book">
                 {/* Invisible button */}
                 {/* When dragged translates distance into sheet opening angle*/}
-                <button className="drag-button"  draggable={this.shouldBeDragabble()} onDragStart={this.handleStartDrag} onTouchStart={this.handleStartDrag} onTouchMove={this.handleDrag.bind(this)} onTouchEnd={this.handleEndDrag} onDrag={this.handleDrag.bind(this)} onDragEnd={this.handleEndDrag}>DragMe</button>
+                <button className="drag-button" onDragStart={this.handleStartDrag} onTouchStart={this.handleStartDrag} onTouchMove={this.handleDrag.bind(this)} onTouchEnd={this.handleEndDrag} onDrag={this.handleDrag.bind(this)} onDragEnd={this.handleEndDrag}>DragMe</button>
                 <div className="book">
                     {_sheetCollection}
                 </div>

@@ -14,7 +14,8 @@ class App extends React.Component<{}, {opponentScore: string}> {
   _totalScore: number = 0;
   _isOut: boolean = false;
   // http://localhost:3000/
-  socket = socketIo("https://evening-eyrie-36396.herokuapp.com/");
+  // https://evening-eyrie-36396.herokuapp.com/
+  socket = socketIo("http://localhost:3000/");
   _customPlayerCode: string = "";
   _displayPlayererSessionInfo: boolean = false;
 

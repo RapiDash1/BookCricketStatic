@@ -64,7 +64,7 @@ class Sheet extends React.Component <CustomInputProps> {
         // maxDivisor is lower for mobile screens since
         // there will be lesser distance to travel to skip the book
         // Full rotatioin should happen for a smaller relative distance
-        const maxDivisor = (window.innerWidth <= 1200) ? 3 : 6;
+        const maxDivisor = (window.innerWidth <= 1200) ? 5 : 6;
         return relativeDist/(maxDivisor - this._sheetPos*0.15);
     }
 
@@ -75,7 +75,7 @@ class Sheet extends React.Component <CustomInputProps> {
     // calculation should be stopped 
     handleDrag(e: any, socket: any, customPlayerCodeStr: () => string) {
         // x position of the bottom right corner of the sheet
-        const dragButtonPosMultiplier = (window.innerWidth < 1200) ? 0.8 : 0.55;
+        const dragButtonPosMultiplier = (window.innerWidth < 1200) ? 0.7 : 0.55;
         console.log(dragButtonPosMultiplier);
         const originX = window.innerWidth*dragButtonPosMultiplier;
         const sheetCover = document.querySelector("."+this._sheetCoverStr) as HTMLElement;
