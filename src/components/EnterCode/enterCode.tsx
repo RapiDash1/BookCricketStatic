@@ -19,6 +19,7 @@ class EnterCode extends React.Component<customenterCodeInterface> {
     
     // get code
     getCode() {
+        console.log("Hi");
         const customCodeText = document.querySelector(".code-text-input") as HTMLInputElement;
         this.hideComponent();
         // delegate socke.io code handling to parent
@@ -48,7 +49,7 @@ class EnterCode extends React.Component<customenterCodeInterface> {
                     <p className="enterCode-text">Enter code</p>
                     <div className="enter-code-main-div">
                         <input type="text" name="code-text" className="code-text-input"/>
-                        <button className="Enter-game-button" onClick={this.getCode}>Enter Game</button>
+                        <button className="Enter-game-button" onTouchStart={this.getCode} onClick={this.getCode}>Enter Game</button>
                     </div>
                     <p className="enterCode-text">Or</p>
                     <div className="share-code-button">
@@ -57,7 +58,7 @@ class EnterCode extends React.Component<customenterCodeInterface> {
                             <p className="code-val-text">{this.props.sharableCode}</p>
                             <button className="clipnoard-button"> <img src={clipboard} className="clipboard-image"/></button>
                         </div>
-                        <button className="enter-share-code" onClick={this.sendBackSameCode.bind(this)}>Enter</button>
+                        <button className="enter-share-code" onTouchStart={this.sendBackSameCode.bind(this)} onClick={this.sendBackSameCode.bind(this)}>Enter</button>
                     </div>
                 </div>
             </div>
