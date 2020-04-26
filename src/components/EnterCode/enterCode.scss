@@ -10,7 +10,10 @@
 
 .display-enterCode {
     @extend .display-out;
+    padding-top: 1%;
+    padding-bottom: 1%;
     justify-content: space-around !important;
+    box-shadow: 3px 3px 10px 3px black;
 }
 
 .enterCode-text {
@@ -26,18 +29,92 @@
 }
 
 .code-text-input {
-    height: 10% ;
     font-size: 2em;
     text-align: center;
 }
 
+.share-code-button {
+    width: 85%;
+    background-color: rgba(70, 70, 70, 1);
+    border: none;
+    color: white;
+    height: 15%;
+    display: grid;
+    grid-template-columns: 0.85fr 1fr 0.5fr;
+    font-size: 2.5em;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden
+}
+
+.enter-code-main-div {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.clipboard-image {
+    width: 60%; 
+    filter: invert(100%);
+}
+
+.clipnoard-button {
+    width: 20%;
+    border-radius: 10%;
+    margin-left: 5%;
+    background-color: rgb(44, 43, 43);
+    border: 0;
+}
+
+.code-val-text {
+    margin-top: 0;
+    margin-bottom: 0;
+    color:#50C878;
+}
+
+.code-share-div {
+    display: flex;
+    margin-left: 1%;
+}
+
+.share-code-text {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 3%;
+}
+
+.enter-share-code {
+    height: 100%;
+    background-color: #50C878;
+    font-size: 0.8em;
+}
+
 @media only screen and (max-width: 1024px) {
 
-    .enterCode-text {
-        font-size: 1.4em;
+    .display-enterCode {
+       height: 25%;
+       width: 80%;
     }
 
-    .code-text-input {
-        width: 60%;
+    .enterCode-text {
+        font-size: 4em;
+    }
+
+    .enter-code-main-div {
+        height: 15%;
+    }
+
+    .code-val-text {
+        color:#50C878;
+    }
+
+    .clipboard-image {
+        float: right;
+        width: 20%; 
+        height: 80%;
+    }
+
+    .clipboard-image {
+        width: 100%;
+        filter: invert(100%);
     }
 }

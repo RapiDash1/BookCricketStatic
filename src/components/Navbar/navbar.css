@@ -89,8 +89,18 @@ nav {
 
 @media only screen and (max-width: 1024px) {
     .session-heading {
-        left: 8vw;
+        left: 12vw;
         top: 1.5vh;
-        font-size: 1.4em;
+        font-size: 3em;
+    }
+
+    .Social-Media {
+        position: absolute;
+        right: 12.5vw;
+        transform: scale(1.5);
+    }
+
+    .Social-Media:hover {
+        transform: scale(1.5);
     }
 }

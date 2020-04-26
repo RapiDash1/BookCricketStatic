@@ -111,6 +111,7 @@ class App extends React.Component<{}, {opponentScore: string}> {
   // code call back
   // handles sending game initial code to server
   codeCallBack(code: string) {
+    console.log(code);
     this.socket.emit("customCommonCode", code);
   }
 
@@ -140,6 +141,15 @@ class App extends React.Component<{}, {opponentScore: string}> {
 
   // component did mount
   componentDidMount() {
+
+    // getting a sharable code from the server
+    this.socket.on("sharableCode", (playerCodeInfo: {gameCode: number}) => {
+      this._customPlayerCode = playerCodeInfo.gameCode.toString();
+      this.forceUpdate();
+    })
+
+
+    // what to do on recieving opponent's score
     this.socket.on("opponentScore", (oppScore: string) => {
       // console.log(oppScore);
       this.setState({
@@ -205,12 +215,21 @@ class App extends React.Component<{}, {opponentScore: string}> {
   }
 
 
+
+
+  // TODO: devide the horizontal space between book and score
+  // Add a a lighter grey to the background and add box shadow
+  // It will be a better UX, oncve the player knows the bounds of the book
+
+
+
+
   // render
   render() {
     return(
       <div className="App">
         <Out finalScore={this.finalScore()} playerText={this.playerText()}/>
-        <EnterCode parentCallBack={this.codeCallBack} />
+        <EnterCode parentCallBack={this.codeCallBack} sharableCode={this._customPlayerCode}/>
         <Navbar parentCallback={() => {}} sessionHeading={this.sessionHeading()}/>
         <div className="body-container">
           <div className="first-row">

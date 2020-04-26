@@ -42,7 +42,7 @@
         width: 50vw;
     }
 
-    .scoring-key {
+    /* .scoring-key {
         font-size: 2.5em;
         color: greenyellow;
     }
@@ -50,5 +50,5 @@
     .scoring-val {
         font-size: 2.5em;
         color: white;
-    }
+    } */
 }
