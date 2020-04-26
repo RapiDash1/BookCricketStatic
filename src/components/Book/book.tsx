@@ -2,7 +2,6 @@ import React from "react";
 import Sheet from "../Sheet/sheet";
 import "./book.css";
 import App from "../../App";
-const ReactTouchEvents = require("react-touch-events");
 
 interface customBookProps {
     appCallBack: (currentSheetScore: number) => void;
