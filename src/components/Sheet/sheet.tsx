@@ -82,7 +82,7 @@ class Sheet extends React.Component <CustomInputProps> {
         const currentYRot = this.convertRoataionToNumber(sheetCover.style.transform, true);
         // get the actual width of the window
         // e.screenX returns the positon of the mouse wrt the whole screen
-        const eScreen  = (e.screenX) ? e.screenX : e.touches[0].clientX;
+        const eScreen  = (e.screenX) ? e.screenX : (e.touches) ? e.touches[0].clientX : 0;
         const actualWindowWidth = eScreen - window.screenLeft;
         //  Below formula emulates a good fit for drag movement to sheet angle
         const newYRot = this.translationToRotation(actualWindowWidth - originX);

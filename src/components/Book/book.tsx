@@ -47,6 +47,7 @@ class Book extends React.Component<customBookProps> {
     // handle drag
     handleDrag(e: any) {
         // adding shouldBeDragabble here insted of dragabble atribute to handle touch evvents aswell
+        console.log(this.shouldBeDragabble());
         if (this.shouldBeDragabble()) {
             // delegate start drag to each component
             this._sheetArray.forEach(sheet => {
@@ -115,7 +116,7 @@ class Book extends React.Component<customBookProps> {
 
     // should be dragabble
     shouldBeDragabble(): boolean {
-        return (this.props.playerTurn) ? true : false;
+        return this.props.playerTurn;
     }
 
 
@@ -139,7 +140,7 @@ class Book extends React.Component<customBookProps> {
             <div className="complete-book">
                 {/* Invisible button */}
                 {/* When dragged translates distance into sheet opening angle*/}
-                <button className="drag-button" onDragStart={this.handleStartDrag} onTouchStart={this.handleStartDrag} onTouchMove={this.handleDrag.bind(this)} onTouchEnd={this.handleEndDrag} onDrag={this.handleDrag.bind(this)} onDragEnd={this.handleEndDrag}>DragMe</button>
+                <button className="drag-button" draggable={true} onDragStart={this.handleStartDrag} onTouchStart={this.handleStartDrag} onTouchMove={this.handleDrag.bind(this)} onTouchEnd={this.handleEndDrag} onDrag={this.handleDrag.bind(this)} onDragEnd={this.handleEndDrag}>DragMe</button>
                 <div className="book">
                     {_sheetCollection}
                 </div>
