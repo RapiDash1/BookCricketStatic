@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Book from "./components/Book/book";
 import Navbar from "./components/Navbar/navbar";
@@ -19,7 +18,7 @@ class App extends React.Component<{}, {opponentScore: string}> {
   _customPlayerCode: string = "";
   _displayPlayererSessionInfo: boolean = false;
 
-  // Test autobuild
+  // Test autobuild V2
   // Ignore this
 
   constructor(props: any) {
