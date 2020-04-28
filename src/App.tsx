@@ -7,6 +7,7 @@ import Out from "./components/out/out";
 import Sheet from "./components/Sheet/sheet";
 import EnterCode from "./components/EnterCode/enterCode";
 import socketIo from "socket.io-client";
+import Loader from "./components/Loader/loader";
 
 class App extends React.Component<{}, {opponentScore: string}> {
 
@@ -14,7 +15,7 @@ class App extends React.Component<{}, {opponentScore: string}> {
   _isOut: boolean = false;
   // http://localhost:3000/
   // https://blooming-meadow-53073.herokuapp.com/
-  socket = socketIo("https://blooming-meadow-53073.herokuapp.com/");
+  socket = socketIo("http://localhost:3000/");
   _customPlayerCode: string = "";
   _displayPlayererSessionInfo: boolean = false;
 
@@ -107,11 +108,16 @@ class App extends React.Component<{}, {opponentScore: string}> {
     this.socket.emit("outMessage", {playerCode: this._customPlayerCode});
   }
 
+  // toggle loader
+  toggleLoader() {
+    const loaderMainDiv = document.querySelector(".loader-main-div") as HTMLElement;
+    loaderMainDiv.classList.toggle("hide-loader"); 
+  }
+
 
   // code call back
   // handles sending game initial code to server
   codeCallBack(code: string) {
-    console.log(code);
     this.socket.emit("customCommonCode", code);
   }
 
@@ -148,68 +154,73 @@ class App extends React.Component<{}, {opponentScore: string}> {
       this.forceUpdate();
     })
 
+    // hide loader on player connect
+    this.socket.on("hideLoader", () => {
+      console.log("Loader toggled");
+      this.toggleLoader();
 
-    // what to do on recieving opponent's score
-    this.socket.on("opponentScore", (oppScore: string) => {
-      // console.log(oppScore);
-      this.setState({
-        opponentScore: oppScore
+      // what to do on recieving opponent's score
+      this.socket.on("opponentScore", (oppScore: string) => {
+        // console.log(oppScore);
+        this.setState({
+          opponentScore: oppScore
+        });
       });
-    });
 
-
-    // set player codes
-    this.socket.on("playerCode", (playerInitInfoMap: {playerCode: string, initSession: boolean}) => {
-      // setting player code that is given back by the server
-      // this playerCode is used to tie players and opponents together
-      this._customPlayerCode = playerInitInfoMap.playerCode;
-      // player session is whether player should play or not
-      this._isOut = playerInitInfoMap.initSession;
-      // Display session info once player is connected to a game
-      this._displayPlayererSessionInfo = true;
-      this.forceUpdate();
-    });
-
-    // open book wile opponent is animating
-    this.socket.on("openBookWithOpponentAngle", (sheetInfo: any) => {
-      // console.log("oppening book");
-      // rotate the sheet of .sheetInfo.sheetCoverPos class bt sheetInfo.sheetAngle angle 
-      const sheetCover = document.querySelector("."+sheetInfo.sheetCoverPos) as HTMLElement;
-      sheetCover.style["transform"] = "rotateY(" + sheetInfo.sheetAngle + "deg" +")";
-    })
-
-    // player book closing animation
-    // triggered by opponent
-    this.socket.on("opponentBookStopOpeningAnimation", () => {
-      // handle sheet closing animation per sheet
-      for (let sheetPos: number = 0; sheetPos < 10; sheetPos++) {
-        const sheet = new Sheet({pos:sheetPos});
-        sheet.handleEndDrag();
-      }
-    });
-
-    // Display opponent's page number while playing
-    this.socket.on("currentPage", (opponentPageNumber: string) => {
-      // sheets are arranged in a book as a stack, hence page 5 appears first
-      const rightSheet = document.querySelector(".sheet-cover5") as HTMLElement;
-      const rightSheetPara =  rightSheet.querySelector(".page-number") as HTMLElement;
-      rightSheetPara.innerText = opponentPageNumber;
-
-      // page 4 is on the right side
-      const leftSheet = document.querySelector(".sheet-cover4") as HTMLElement;
-      const leftSheetPara =  leftSheet.querySelector(".next-page-number") as HTMLElement;
-      leftSheetPara.innerText = (Number(opponentPageNumber)+1).toString(); 
-    });
-
-    // Switch player when opponent is out
-    // Display opponent is out message toi current player
-    this.socket.on("outMessage", () => {
-      console.log("Outmessage");
-        // if opponent is out,
-        // current player can start playing
-        this._isOut = false;
-        this.toggleOutWindow();
+      // set player codes
+      this.socket.on("playerCode", (playerInitInfoMap: {playerCode: string, initSession: boolean}) => {
+        // setting player code that is given back by the server
+        // this playerCode is used to tie players and opponents together
+        this._customPlayerCode = playerInitInfoMap.playerCode;
+        // player session is whether player should play or not
+        this._isOut = playerInitInfoMap.initSession;
+        // Display session info once player is connected to a game
+        this._displayPlayererSessionInfo = true;
         this.forceUpdate();
+      });
+
+      // open book wile opponent is animating
+      this.socket.on("openBookWithOpponentAngle", (sheetInfo: any) => {
+        // console.log("oppening book");
+        // rotate the sheet of .sheetInfo.sheetCoverPos class bt sheetInfo.sheetAngle angle 
+        const sheetCover = document.querySelector("."+sheetInfo.sheetCoverPos) as HTMLElement;
+        sheetCover.style["transform"] = "rotateY(" + sheetInfo.sheetAngle + "deg" +")";
+      })
+
+      // player book closing animation
+      // triggered by opponent
+      this.socket.on("opponentBookStopOpeningAnimation", () => {
+        // handle sheet closing animation per sheet
+        for (let sheetPos: number = 0; sheetPos < 10; sheetPos++) {
+          const sheet = new Sheet({pos:sheetPos});
+          sheet.handleEndDrag();
+        }
+      });
+
+      // Display opponent's page number while playing
+      this.socket.on("currentPage", (opponentPageNumber: string) => {
+        // sheets are arranged in a book as a stack, hence page 5 appears first
+        const rightSheet = document.querySelector(".sheet-cover5") as HTMLElement;
+        const rightSheetPara =  rightSheet.querySelector(".page-number") as HTMLElement;
+        rightSheetPara.innerText = opponentPageNumber;
+
+        // page 4 is on the right side
+        const leftSheet = document.querySelector(".sheet-cover4") as HTMLElement;
+        const leftSheetPara =  leftSheet.querySelector(".next-page-number") as HTMLElement;
+        leftSheetPara.innerText = (Number(opponentPageNumber)+1).toString(); 
+      });
+
+      // Switch player when opponent is out
+      // Display opponent is out message toi current player
+      this.socket.on("outMessage", () => {
+        console.log("Outmessage");
+          // if opponent is out,
+          // current player can start playing
+          this._isOut = false;
+          this.toggleOutWindow();
+          this.forceUpdate();
+      });
+
     });
 
   }
@@ -228,6 +239,7 @@ class App extends React.Component<{}, {opponentScore: string}> {
   render() {
     return(
       <div className="App">
+        <Loader />
         <Out finalScore={this.finalScore()} playerText={this.playerText()}/>
         <EnterCode parentCallBack={this.codeCallBack} sharableCode={this._customPlayerCode}/>
         <Navbar parentCallback={() => {}} sessionHeading={this.sessionHeading()}/>
