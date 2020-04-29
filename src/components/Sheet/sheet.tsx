@@ -151,7 +151,7 @@ class Sheet extends React.Component <CustomInputProps> {
     // Give an offset to every sheet
     // THe sheets should be clustered around the beginning and the end for better visibility of score
     sheetAngleOffset() {
-        return (this._sheetPos >= 5) ? (9 - this._sheetPos)*5 : (145 - this._sheetPos*6) 
+        return (this._sheetPos >= 5) ? (10 - this._sheetPos)*5 : (145 - this._sheetPos*6) 
     }
 
 

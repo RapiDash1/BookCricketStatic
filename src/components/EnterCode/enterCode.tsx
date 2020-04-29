@@ -19,14 +19,14 @@ class EnterCode extends React.Component<customenterCodeInterface> {
     
     // get code
     getCode() {
-        console.log("Hi");
+        console.log("In getCode");
         const customCodeText = document.querySelector(".code-text-input") as HTMLInputElement;
         this.hideComponent();
         // delegate socke.io code handling to parent
         this.props.parentCallBack(customCodeText.value);
     }
 
-
+    // send back same code
     sendBackSameCode() {
         this.hideComponent();
         // delegate socke.io code handling to parent

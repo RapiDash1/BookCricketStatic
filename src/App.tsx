@@ -8,6 +8,7 @@ import Sheet from "./components/Sheet/sheet";
 import EnterCode from "./components/EnterCode/enterCode";
 import socketIo from "socket.io-client";
 import Loader from "./components/Loader/loader";
+import Chat from "./components/Chat/chat";
 
 class App extends React.Component<{}, {opponentScore: string}> {
 
@@ -15,7 +16,7 @@ class App extends React.Component<{}, {opponentScore: string}> {
   _isOut: boolean = false;
   // http://localhost:3000/
   // https://blooming-meadow-53073.herokuapp.com/
-  socket = socketIo("http://localhost:3000/");
+  socket = socketIo("https://blooming-meadow-53073.herokuapp.com/");
   _customPlayerCode: string = "";
   _displayPlayererSessionInfo: boolean = false;
 
@@ -150,14 +151,16 @@ class App extends React.Component<{}, {opponentScore: string}> {
 
     // getting a sharable code from the server
     this.socket.on("sharableCode", (playerCodeInfo: {gameCode: number}) => {
+      console.log("Sharable code in");
       this._customPlayerCode = playerCodeInfo.gameCode.toString();
       this.forceUpdate();
-    })
+    });
 
     // hide loader on player connect
     this.socket.on("hideLoader", () => {
       console.log("Loader toggled");
       this.toggleLoader();
+    });
 
       // what to do on recieving opponent's score
       this.socket.on("opponentScore", (oppScore: string) => {
@@ -169,6 +172,7 @@ class App extends React.Component<{}, {opponentScore: string}> {
 
       // set player codes
       this.socket.on("playerCode", (playerInitInfoMap: {playerCode: string, initSession: boolean}) => {
+        console.log("Ibnside layer code");
         // setting player code that is given back by the server
         // this playerCode is used to tie players and opponents together
         this._customPlayerCode = playerInitInfoMap.playerCode;
@@ -210,6 +214,29 @@ class App extends React.Component<{}, {opponentScore: string}> {
         leftSheetPara.innerText = (Number(opponentPageNumber)+1).toString(); 
       });
 
+
+      // Handle sending player message to opponenet
+      this.socket.on("opponentMessage", (messageInfo: {message: string}) => {
+
+        // display message only if it is not empty
+        if (messageInfo.message != "") {
+          // div where all the messages should be displayed
+          const msgDisplayArea = document.querySelector(".chat-box-display") as HTMLElement;
+
+          const msgDisplayDivHidden = document.querySelector(".hide-chat-box") as HTMLElement;
+          if (msgDisplayDivHidden) {
+            const chatIconDiv = document.querySelector(".chat-icon-div") as HTMLElement;
+            chatIconDiv.classList.toggle("chat-icon-anim");
+          }
+
+            // create message elemement
+            const paragraphElement = document.createElement("p");
+            paragraphElement.appendChild(document.createTextNode(messageInfo.message));
+            paragraphElement.setAttribute("class", "opponent-message");
+            msgDisplayArea.appendChild(paragraphElement);
+        }
+      });
+
       // Switch player when opponent is out
       // Display opponent is out message toi current player
       this.socket.on("outMessage", () => {
@@ -221,7 +248,6 @@ class App extends React.Component<{}, {opponentScore: string}> {
           this.forceUpdate();
       });
 
-    });
 
   }
 
@@ -249,6 +275,7 @@ class App extends React.Component<{}, {opponentScore: string}> {
             <Book appCallBack={this.bookCallBack} socket={this.socket} customPlayerCode={this.getCustomPlayerCode} playerTurn={!this._isOut} /> 
             <Score playerScore={this._totalScore} opponentScore={this.state.opponentScore}/>
           </div>
+          <Chat socket={this.socket} customPlayerCode={this.getCustomPlayerCode}/>
         </div>
       </div>
     );

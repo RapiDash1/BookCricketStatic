@@ -1,0 +1,109 @@
+.chat-main-div{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    width: 25%;
+    z-index: 2;
+    top: 20%;
+    right: 5%;
+    justify-content: flex-end;
+}
+
+.chat-box-div {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+}
+
+.chat-box-display {
+    height: 80%;
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: 4px 4px 15px 4px black;
+    border-radius: 1% 2% 0 0;
+}
+
+.chat-box-type {
+    height: 13%;
+    box-shadow: 2px 6px 15px 2px black;
+    padding: 0%;
+    display: flex;
+}
+
+.send-msg-button {
+    height: 99%;
+    width: 20%;
+    background-color: #50C878;
+    border: none;
+    box-shadow:4px 6px 10px 1px black;
+    font-size: 1.5em;
+    z-index: 2;
+    border-radius: 0 0 5% 0;
+}
+
+.send-msg-button:hover {
+    transform: scale(1.015);
+}
+
+.chat-box-text-input {
+    height: 90%;
+    width: 99.5%; /* Weird */
+    font-size: 1.25em;
+    z-index: 2;
+    border-radius: 0 0 0 2%;
+}
+
+.chat-icon-div {
+    width: 15%;
+    margin-left: 80%;
+}
+
+.chat-icon-anim {
+    border-radius: 50%;
+    animation: oscillate 0.8s linear 0.8s infinite alternate;
+}
+
+@keyframes oscillate {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.3);
+    }
+}
+
+.chat-icon {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 4px 4px 15px 4px black;
+}
+
+.chat-icon:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.hide-chat-box {
+   display: none;
+}
+
+.player-message {
+    margin-left: 20%;
+    padding-left: 1%;
+    margin-right: 2%;
+    padding-right: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 75%;
+    border-radius: 5%;
+    font-size: 1.3em;
+    font-weight: 500;
+    background-color: rgba(44, 43, 43, 0.1);
+}
+
+.opponent-message {
+    @extend .player-message;
+    margin-left: 2%;
+    background-color: rgba(44, 43, 43, 0.05);
+}
