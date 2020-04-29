@@ -107,3 +107,12 @@
     margin-left: 2%;
     background-color: rgba(44, 43, 43, 0.05);
 }
+
+
+@media only screen and (max-width: 1024px) {
+    .chat-main-div{
+        top:50%;
+        height: 40%;
+        width: 70vw;
+    }
+}
