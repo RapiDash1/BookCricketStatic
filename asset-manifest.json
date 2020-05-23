@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/BookCricketStatic/static/css/main.a8c18d01.chunk.css",
+    "main.css": "/BookCricketStatic/static/css/main.93eaca71.chunk.css",
     "main.js": "/BookCricketStatic/static/js/main.573cfe23.chunk.js",
     "main.js.map": "/BookCricketStatic/static/js/main.573cfe23.chunk.js.map",
     "runtime-main.js": "/BookCricketStatic/static/js/runtime-main.df319d90.js",
@@ -8,9 +8,9 @@
     "static/js/2.de2db090.chunk.js": "/BookCricketStatic/static/js/2.de2db090.chunk.js",
     "static/js/2.de2db090.chunk.js.map": "/BookCricketStatic/static/js/2.de2db090.chunk.js.map",
     "index.html": "/BookCricketStatic/index.html",
-    "precache-manifest.cd74c0e5e903ca51b5326f64a6f704fb.js": "/BookCricketStatic/precache-manifest.cd74c0e5e903ca51b5326f64a6f704fb.js",
+    "precache-manifest.0b76d00cd44e3f334f6c2898cfd4631a.js": "/BookCricketStatic/precache-manifest.0b76d00cd44e3f334f6c2898cfd4631a.js",
     "service-worker.js": "/BookCricketStatic/service-worker.js",
-    "static/css/main.a8c18d01.chunk.css.map": "/BookCricketStatic/static/css/main.a8c18d01.chunk.css.map",
+    "static/css/main.93eaca71.chunk.css.map": "/BookCricketStatic/static/css/main.93eaca71.chunk.css.map",
     "static/js/2.de2db090.chunk.js.LICENSE.txt": "/BookCricketStatic/static/js/2.de2db090.chunk.js.LICENSE.txt",
     "static/media/chatIcon.png": "/BookCricketStatic/static/media/chatIcon.631e2c61.png",
     "static/media/clipboard.svg": "/BookCricketStatic/static/media/clipboard.12202113.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.df319d90.js",
     "static/js/2.de2db090.chunk.js",
-    "static/css/main.a8c18d01.chunk.css",
+    "static/css/main.93eaca71.chunk.css",
     "static/js/main.573cfe23.chunk.js"
   ]
 }
