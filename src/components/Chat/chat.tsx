@@ -27,6 +27,9 @@ class Chat extends React.Component<chatInterface> {
         // toggle chat display  
         const chatBox = document.querySelector(".chat-box-div") as HTMLElement;
         chatBox.classList.toggle("hide-chat-box");
+
+        const chatBoxInput = document.querySelector(".chat-box-text-input") as HTMLInputElement;
+        chatBoxInput.focus();
     }
 
     // handle send message click
@@ -58,9 +61,10 @@ class Chat extends React.Component<chatInterface> {
             <div className="chat-main-div">
                 <div className="chat-box-div hide-chat-box">
                     <div className="chat-box-display">
+                        <div className="chat-box-heading">Chat with opponent</div>
                     </div>
                     <div className="chat-box-type">
-                        <input type="text" className="chat-box-text-input"/>
+                        <input type="text" className="chat-box-text-input" placeholder="Type your message"/>
                         <button className="send-msg-button" onClick={this.handleSendMessageClick}>Send</button>
                     </div>
                 </div>
