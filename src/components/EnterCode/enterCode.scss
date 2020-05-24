@@ -57,8 +57,8 @@
     filter: invert(100%);
 }
 
-.clipnoard-button {
-    width: 20%;
+.clipboard-button {
+    width: 50%;
     border-radius: 10%;
     margin-left: 5%;
     background-color: rgb(44, 43, 43);
@@ -66,14 +66,21 @@
 }
 
 .code-val-text {
-    margin-top: 0;
-    margin-bottom: 0;
     color:#50C878;
+    border: none;
+    text-align: center;
+    font-size: 2rem;
+    width: 90%;
+    font-weight: 600;
+    padding: 0%;
+    background-color: rgba(70, 70, 70, 1);
 }
 
 .code-share-div {
-    display: flex;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
     margin-left: 1%;
+    height: 80%;
 }
 
 .share-code-text {
@@ -113,8 +120,8 @@
 
     .clipboard-image {
         float: right;
-        width: 20%; 
-        height: 80%;
+        // width: 20%;  
+        // height: 80%;
     }
 
     .clipboard-image {

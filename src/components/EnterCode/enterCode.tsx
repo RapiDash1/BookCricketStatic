@@ -34,6 +34,15 @@ class EnterCode extends React.Component<customenterCodeInterface> {
     }
 
 
+    // copyToClipboard
+    copyToClipboard() {
+        var copyText = document.querySelector(".code-val-text") as HTMLInputElement;
+        copyText.select();
+        document.execCommand("copy");
+        alert("Code coppied to clipboard");
+    }
+
+
     // hide component
     // since this should be visible only before the game starts
     hideComponent() {
@@ -55,8 +64,8 @@ class EnterCode extends React.Component<customenterCodeInterface> {
                     <div className="share-code-button">
                         <p className="share-code-text">Share code :</p>
                         <div className="code-share-div">
-                            <p className="code-val-text">{this.props.sharableCode}</p>
-                            <button className="clipnoard-button"> <img src={clipboard} className="clipboard-image"/></button>
+                            <input className="code-val-text" value={this.props.sharableCode} />
+                            <button className="clipboard-button"><img src={clipboard} className="clipboard-image" onClick={this.copyToClipboard}/></button>
                         </div>
                         <button className="enter-share-code" onTouchStart={this.sendBackSameCode.bind(this)} onClick={this.sendBackSameCode.bind(this)}>Enter</button>
                     </div>
