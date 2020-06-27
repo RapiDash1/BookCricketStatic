@@ -1,0 +1,50 @@
+.instructions-div {
+    color: white;
+    display: grid;
+    font-size: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    margin-top: 2%;
+}
+
+.instruction-name {
+    text-align: center;
+    font-size: 2rem;
+    color: #50C878;
+}
+
+.instructions-to-play, .scoring-instructions {
+    background-color: rgb(50, 50, 50);
+    border-radius: 1%;
+    box-shadow: 3px 3px 10px 0.5px black;
+    margin-left: 4%;
+    margin-right: 4%;
+    padding-top: 5%;
+    opacity: 0.5;
+}
+
+
+
+.instructions-to-play:hover, .scoring-instructions:hover {
+    transform: scale(1.03);
+    opacity: 1;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .instructions-div {
+        grid-template-rows: 1fr 1fr !important;
+        font-size: 2rem;
+        width: 100%;
+        margin-top: 10%;
+        margin-left: 0%;
+    }
+
+    .instructions-to-play, .scoring-instructions {
+        opacity: 1;
+    }
+
+    .instruction-name {
+        font-size: 2.5rem;
+    }
+}

@@ -9,6 +9,7 @@ import EnterCode from "./components/EnterCode/enterCode";
 import socketIo from "socket.io-client";
 import Loader from "./components/Loader/loader";
 import Chat from "./components/Chat/chat";
+import Instrucions from "./components/Instructions/instructions";
 
 class App extends React.Component<{}, {opponentScore: string}> {
 
@@ -272,6 +273,7 @@ class App extends React.Component<{}, {opponentScore: string}> {
             <Book appCallBack={this.bookCallBack} socket={this.socket} customPlayerCode={this.getCustomPlayerCode} playerTurn={!this._isOut} /> 
             <Score playerScore={this._totalScore} opponentScore={this.state.opponentScore}/>
           </div>
+          <Instrucions />
           <Chat socket={this.socket} customPlayerCode={this.getCustomPlayerCode}/>
         </div>
       </div>
