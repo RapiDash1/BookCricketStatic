@@ -32,6 +32,16 @@
     animation-duration: 2s;
 }
 
+.page-turn-indicator {
+    position: absolute;
+    background-color: black;
+    left: 70%;
+    top: 70%;
+    height: 30%;
+    width: 30%;
+    opacity: 0.7;
+}
+
 
 @keyframes sheetClose {
     0% {

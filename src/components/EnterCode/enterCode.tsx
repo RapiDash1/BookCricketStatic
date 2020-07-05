@@ -54,6 +54,10 @@ class EnterCode extends React.Component<customenterCodeInterface> {
     render() {
         return (
             <div className="enterCode-div">
+                <div className="display-general-instructions"></div>
+                <div className="display-instructions">Enter unique code to join a game</div>
+                <div className="display-copy-code">Copy code</div>
+                <div className="display-share-instructions">Share your own code to a friend.</div>
                 <div className="display-enterCode">
                     <p className="enterCode-text">Enter code</p>
                     <div className="enter-code-main-div">

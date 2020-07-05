@@ -17,7 +17,7 @@ class App extends React.Component<{}, {opponentScore: string}> {
   _isOut: boolean = false;
   // http://localhost:3000/
   // https://blooming-meadow-53073.herokuapp.com/
-  socket = socketIo("https://blooming-meadow-53073.herokuapp.com/");
+  socket = socketIo("http://localhost:3000/");
   _customPlayerCode: string = "";
   _displayPlayererSessionInfo: boolean = false;
 

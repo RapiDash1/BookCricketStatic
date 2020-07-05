@@ -27,6 +27,7 @@ class Sheet extends React.Component <CustomInputProps> {
         // Bind functions
         this.handleEndDrag = this.handleEndDrag.bind(this);
         this.handleStartDrag = this.handleStartDrag.bind(this);
+        this.sheetPos = this.sheetPos.bind(this);
     }
 
 
@@ -38,6 +39,11 @@ class Sheet extends React.Component <CustomInputProps> {
         if (this._sheetPos == 0 || this._sheetPos == 9) {sheetCover.style.backgroundColor = "#50C878";}
         else {sheetCover.style.backgroundColor = "white";}
         sheetCover.style.boxShadow = "2px 3px 4px 0.05px";
+    }
+
+
+    sheetPos() {
+        return this._sheetPos;
     }
 
 
@@ -184,9 +190,12 @@ class Sheet extends React.Component <CustomInputProps> {
         // Display next page number if page is 4
         // Dont display anything else
         const sheetNumber = (this.shouldPageNumberDisplay()) ? <p className="page-number">{this.props.pageNumber}</p> : (this.shouldNextPageNumberDisplay()) ? <p className="next-page-number">{this.props.pageNumber+1}</p> : null;
-        
+        const pageEnd = (this.sheetPos() == 9) ? <div className="page-turn-indicator"></div> : <div></div>;
         return (
-        <div className={this._sheetCoverStr}>{sheetNumber}</div> 
+        <div className={this._sheetCoverStr}>
+            {pageEnd}
+            {sheetNumber}
+        </div> 
         );
     }
 }
