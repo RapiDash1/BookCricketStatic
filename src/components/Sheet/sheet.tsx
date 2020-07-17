@@ -190,7 +190,7 @@ class Sheet extends React.Component <CustomInputProps> {
         // Display next page number if page is 4
         // Dont display anything else
         const sheetNumber = (this.shouldPageNumberDisplay()) ? <p className="page-number">{this.props.pageNumber}</p> : (this.shouldNextPageNumberDisplay()) ? <p className="next-page-number">{this.props.pageNumber+1}</p> : null;
-        const pageEnd = (this.sheetPos() == 9) ? <div className="page-turn-indicator"></div> : <div></div>;
+        const pageEnd = (this.sheetPos() == 9) ? <div className="page-turn-indicator">Drag me</div> : <div></div>;
         return (
         <div className={this._sheetCoverStr}>
             {pageEnd}

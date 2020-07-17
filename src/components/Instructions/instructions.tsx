@@ -7,7 +7,7 @@ class Instructions extends React.Component {
         return (
             <div className="instructions-div">
                 <div className="instructions-to-play">
-                <div className="instruction-name">Instructions</div>
+                    <div className="instruction-name">Instructions</div>
                     <ul>
                         <li>Press and hold the bottom right corner of the book.</li>
                         <li>Pull horizontally towards left of the book.</li>

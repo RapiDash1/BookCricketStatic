@@ -1,7 +1,6 @@
 .instructions-div {
     color: white;
     display: grid;
-    font-size: 1.5rem;
     grid-template-columns: 1fr 1fr;
     width: 80%;
     margin-top: 2%;

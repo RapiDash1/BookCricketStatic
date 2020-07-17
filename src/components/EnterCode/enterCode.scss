@@ -14,22 +14,8 @@
     padding-bottom: 1%;
     justify-content: space-around !important;
     box-shadow: 3px 3px 10px 3px black;
-}
-
-.display-copy-code {
-    position: absolute;
-    color: white;
-    display: flex;
-    top: 70%;
-    left: 52.5%;
-    font-size: 1.25rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5% 1% 0.5% 1%;
-    border-radius: 1%;
-    background-color: rgb(44, 43, 43);
-    box-shadow: 3px 3px 10px 3px black;
+    width: 40vw;
+    height: 40vh;
 }
 
 .enterCode-text {
@@ -54,13 +40,11 @@
     background-color: rgba(70, 70, 70, 1);
     border: none;
     color: white;
-    height: 15%;
     display: grid;
-    grid-template-columns: 0.85fr 1fr 0.5fr;
+    grid-template-columns: 0.725fr 1fr 0.5fr;
     font-size: 2.5em;
     justify-content: space-around;
     align-items: center;
-    overflow: hidden
 }
 
 .enter-code-main-div {
@@ -74,17 +58,21 @@
 }
 
 .clipboard-button {
-    width: 50%;
+    transform: scale(0.8);
     border-radius: 10%;
-    margin-left: 5%;
+    margin-right: 20%;
     border: 0;
     opacity: 70%;
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
     background-color: rgb(44, 43, 43);
     box-shadow: 3px 3px 10px 3px black;
 }
 
 .clipboard-button:hover {
-    transform: scale(1.08);
+    transform: scale(0.9);
 }
 
 .code-val-text {
@@ -142,17 +130,10 @@
 
     .clipboard-image {
         float: right;
-        // width: 20%;  
-        // height: 80%;
     }
 
     .clipboard-image {
         width: 100%;
         filter: invert(100%);
-    }
-    
-    .display-copy-code {
-        left: 55.5%;
-        top: 61.5%;
     }
 }
