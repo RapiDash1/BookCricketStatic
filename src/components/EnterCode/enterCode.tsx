@@ -1,6 +1,7 @@
 import React from "react";
 import "../out/out.scss";
 import "./enterCode.scss";
+import clipboard from "../../Images/clipboard.svg";
 
 interface customenterCodeInterface {
     parentCallBack: (message: string) => void;
@@ -65,7 +66,7 @@ class EnterCode extends React.Component<customenterCodeInterface> {
                         <p className="share-code-text">Share code :</p>
                         <div className="code-share-div">
                             <input className="code-val-text" value={this.props.sharableCode} />
-                            <button className="clipboard-button" onClick={this.copyToClipboard}>Copy</button>
+                            <button className="clipboard-button" onClick={this.copyToClipboard}><img src={clipboard} className="clipboard-image"/></button>
                         </div>
                         <button className="enter-share-code" onTouchStart={this.sendBackSameCode.bind(this)} onClick={this.sendBackSameCode.bind(this)}>Enter</button>
                     </div>
