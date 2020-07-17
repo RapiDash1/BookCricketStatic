@@ -16,27 +16,6 @@
     box-shadow: 3px 3px 10px 3px black;
 }
 
-.display-instructions {
-    position: absolute;
-    color: white;
-    display: flex;
-    top: 42.5%;
-    left: 15%;
-    font-size: 1.25rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5% 1% 0.5% 1%;
-    border-radius: 1%;
-    background-color: rgb(44, 43, 43);
-    box-shadow: 3px 3px 10px 3px black;
-}
-
-.display-share-instructions {
-    @extend .display-instructions;
-    top: 62.5%;
-}
-
 .display-copy-code {
     position: absolute;
     color: white;
@@ -170,11 +149,6 @@
     .clipboard-image {
         width: 100%;
         filter: invert(100%);
-    }
-
-
-    .display-instructions {
-        left: 17.5%;
     }
     
     .display-copy-code {
