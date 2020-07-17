@@ -58,7 +58,6 @@
 }
 
 .clipboard-button {
-    transform: scale(0.8);
     border-radius: 10%;
     margin-right: 20%;
     border: 0;
@@ -72,7 +71,7 @@
 }
 
 .clipboard-button:hover {
-    transform: scale(0.9);
+    transform: scale(1.1);
 }
 
 .code-val-text {
@@ -87,8 +86,7 @@
 }
 
 .code-share-div {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
+    display: flex;
     margin-left: 1%;
     height: 80%;
 }
