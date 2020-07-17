@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c5dcd9c50ba12bde1921ada7c4a51a24",
+    "revision": "45c0e9ef17dcb030cfd93ace5b9c9f09",
     "url": "/BookCricketStatic/index.html"
   },
   {
-    "revision": "3cbb97f14a3ad8264ac9",
-    "url": "/BookCricketStatic/static/css/main.daced967.chunk.css"
+    "revision": "8bc7329ba251959f6b43",
+    "url": "/BookCricketStatic/static/css/main.f96d6955.chunk.css"
   },
   {
-    "revision": "97f3320a3854e4ba032b",
-    "url": "/BookCricketStatic/static/js/2.ec78cfec.chunk.js"
+    "revision": "7a659a169ca8481535a6",
+    "url": "/BookCricketStatic/static/js/2.385d1211.chunk.js"
   },
   {
     "revision": "f65b45f562155f0fa2653b346e3552a6",
-    "url": "/BookCricketStatic/static/js/2.ec78cfec.chunk.js.LICENSE.txt"
+    "url": "/BookCricketStatic/static/js/2.385d1211.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3cbb97f14a3ad8264ac9",
-    "url": "/BookCricketStatic/static/js/main.1d005fd5.chunk.js"
+    "revision": "8bc7329ba251959f6b43",
+    "url": "/BookCricketStatic/static/js/main.437d2493.chunk.js"
   },
   {
     "revision": "1c5f4215c57c60b223a3",
@@ -26,10 +26,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "631e2c61f4e8645b465d1ab4865c24c3",
     "url": "/BookCricketStatic/static/media/chatIcon.631e2c61.png"
-  },
-  {
-    "revision": "12202113067705eb14ef717aedd8a4bb",
-    "url": "/BookCricketStatic/static/media/clipboard.12202113.svg"
   },
   {
     "revision": "7a71b6414b5ea2db9d5516fa4a5a57f3",

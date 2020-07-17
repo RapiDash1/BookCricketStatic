@@ -1,25 +1,24 @@
 {
   "files": {
-    "main.css": "/BookCricketStatic/static/css/main.daced967.chunk.css",
-    "main.js": "/BookCricketStatic/static/js/main.1d005fd5.chunk.js",
-    "main.js.map": "/BookCricketStatic/static/js/main.1d005fd5.chunk.js.map",
+    "main.css": "/BookCricketStatic/static/css/main.f96d6955.chunk.css",
+    "main.js": "/BookCricketStatic/static/js/main.437d2493.chunk.js",
+    "main.js.map": "/BookCricketStatic/static/js/main.437d2493.chunk.js.map",
     "runtime-main.js": "/BookCricketStatic/static/js/runtime-main.df319d90.js",
     "runtime-main.js.map": "/BookCricketStatic/static/js/runtime-main.df319d90.js.map",
-    "static/js/2.ec78cfec.chunk.js": "/BookCricketStatic/static/js/2.ec78cfec.chunk.js",
-    "static/js/2.ec78cfec.chunk.js.map": "/BookCricketStatic/static/js/2.ec78cfec.chunk.js.map",
+    "static/js/2.385d1211.chunk.js": "/BookCricketStatic/static/js/2.385d1211.chunk.js",
+    "static/js/2.385d1211.chunk.js.map": "/BookCricketStatic/static/js/2.385d1211.chunk.js.map",
     "index.html": "/BookCricketStatic/index.html",
-    "precache-manifest.687a1486018ae00ae973fcb961090584.js": "/BookCricketStatic/precache-manifest.687a1486018ae00ae973fcb961090584.js",
+    "precache-manifest.7deb8af6795e00d0d6114794fbb834e9.js": "/BookCricketStatic/precache-manifest.7deb8af6795e00d0d6114794fbb834e9.js",
     "service-worker.js": "/BookCricketStatic/service-worker.js",
-    "static/css/main.daced967.chunk.css.map": "/BookCricketStatic/static/css/main.daced967.chunk.css.map",
-    "static/js/2.ec78cfec.chunk.js.LICENSE.txt": "/BookCricketStatic/static/js/2.ec78cfec.chunk.js.LICENSE.txt",
+    "static/css/main.f96d6955.chunk.css.map": "/BookCricketStatic/static/css/main.f96d6955.chunk.css.map",
+    "static/js/2.385d1211.chunk.js.LICENSE.txt": "/BookCricketStatic/static/js/2.385d1211.chunk.js.LICENSE.txt",
     "static/media/chatIcon.png": "/BookCricketStatic/static/media/chatIcon.631e2c61.png",
-    "static/media/clipboard.svg": "/BookCricketStatic/static/media/clipboard.12202113.svg",
     "static/media/instagram-icon.png": "/BookCricketStatic/static/media/instagram-icon.7a71b641.png"
   },
   "entrypoints": [
     "static/js/runtime-main.df319d90.js",
-    "static/js/2.ec78cfec.chunk.js",
-    "static/css/main.daced967.chunk.css",
-    "static/js/main.1d005fd5.chunk.js"
+    "static/js/2.385d1211.chunk.js",
+    "static/css/main.f96d6955.chunk.css",
+    "static/js/main.437d2493.chunk.js"
   ]
 }
