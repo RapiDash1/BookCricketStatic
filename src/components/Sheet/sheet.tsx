@@ -1,5 +1,6 @@
 import React from "react";
 import "./sheet.scss";
+import greenArrow from "../../Images/leftGreenArrow.png";
 
 interface CustomInputProps {
     pos: number;
@@ -190,7 +191,7 @@ class Sheet extends React.Component <CustomInputProps> {
         // Display next page number if page is 4
         // Dont display anything else
         const sheetNumber = (this.shouldPageNumberDisplay()) ? <p className="page-number">{this.props.pageNumber}</p> : (this.shouldNextPageNumberDisplay()) ? <p className="next-page-number">{this.props.pageNumber+1}</p> : null;
-        const pageEnd = (this.sheetPos() == 9) ? <div className="page-turn-indicator">Drag me</div> : <div></div>;
+        const pageEnd = (this.sheetPos() == 9) ? <div className="page-turn-indicator"><img src={greenArrow} className="left-arrow-image"/></div> : <div></div>;
         return (
         <div className={this._sheetCoverStr}>
             {pageEnd}
