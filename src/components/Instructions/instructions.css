@@ -32,7 +32,6 @@
 
 @media only screen and (max-width: 1024px) {
     .instructions-div {
-        grid-template-rows: 1fr 1fr !important;
         font-size: 2rem;
         width: 100%;
         margin-top: 10%;
