@@ -113,11 +113,19 @@ class App extends React.Component<{}, {opponentScore: string}> {
     loaderMainDiv.classList.toggle("hide-loader"); 
   }
 
+  // toggle Init Loader
+  toggleInitLoader() {
+    this.toggleLoader();
+    const loaderInstructions = document.querySelector(".loader-instruction") as HTMLElement;
+    loaderInstructions.classList.toggle("hide-loader");
+  }
+
 
   // code call back
   // handles sending game initial code to server
   codeCallBack(code: string) {
     this.socket.emit("customCommonCode", code);
+    this.toggleLoader();
   }
 
   // final score to be displayed
@@ -146,11 +154,11 @@ class App extends React.Component<{}, {opponentScore: string}> {
 
   // component did mount
   componentDidMount() {
-
     // getting a sharable code from the server
     this.socket.on("sharableCode", (playerCodeInfo: {gameCode: number}) => {
       console.log("Sharable code in");
       this._customPlayerCode = playerCodeInfo.gameCode.toString();
+      this.toggleInitLoader();
       this.forceUpdate();
     });
 

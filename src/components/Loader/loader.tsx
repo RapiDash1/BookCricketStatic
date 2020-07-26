@@ -6,6 +6,11 @@ class Loader extends React.Component {
         super(props);   
     }
 
+    componentDidMount() {
+        const loaderInstructions = document.querySelector(".loader-instruction") as HTMLElement;
+        loaderInstructions.classList.toggle("hide-loader");
+    }
+
     render() {
         return(
             <div className="loader-main-div">
